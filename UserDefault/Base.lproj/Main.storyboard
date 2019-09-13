@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,68 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UserDefault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iRz-c9-adQ">
+                                <rect key="frame" x="20" y="94" width="385" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="IAg-gT-Opk"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Light Mode"/>
+                                    <segment title="Dark Mode"/>
+                                </segments>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img2" translatesAutoresizingMaskIntoConstraints="NO" id="FXU-Em-zN4">
+                                <rect key="frame" x="87" y="194" width="251" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="jmh-wO-fIn"/>
+                                    <constraint firstAttribute="height" constant="150" id="zZ4-Du-W5F"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CH2-hs-kWw">
+                                <rect key="frame" x="44" y="418" width="337" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="337" id="BO5-y5-g01"/>
+                                    <constraint firstAttribute="height" constant="60" id="pXM-8V-xFQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn_save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mNo-DH-80D"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CH2-hs-kWw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1lM-ej-BbY"/>
+                            <constraint firstItem="iRz-c9-adQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6gf-tm-Nvb"/>
+                            <constraint firstItem="FXU-Em-zN4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="CZQ-gp-cqs"/>
+                            <constraint firstItem="iRz-c9-adQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="JK4-lc-qik"/>
+                            <constraint firstItem="FXU-Em-zN4" firstAttribute="top" secondItem="iRz-c9-adQ" secondAttribute="bottom" constant="68" id="MHR-ns-jBB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FXU-Em-zN4" secondAttribute="trailing" constant="87" id="S3d-cR-zAB"/>
+                            <constraint firstItem="CH2-hs-kWw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SVk-yg-chL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iRz-c9-adQ" secondAttribute="trailing" constant="20" id="V80-X8-rWq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="saveButton" destination="CH2-hs-kWw" id="9fx-2r-SCP"/>
+                        <outlet property="segmentedControll" destination="iRz-c9-adQ" id="w2a-0S-XYK"/>
+                        <outlet property="userProfile" destination="FXU-Em-zN4" id="KyL-ye-glk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="95.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img2" width="251" height="251"/>
+    </resources>
 </document>
